@@ -1,0 +1,43 @@
+name: build-windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            src-tauri -> target
+            core -> target
+
+      - name: Run core tests
+        run: cargo test --manifest-path core/Cargo.toml
+        continue-on-error: true
+
+      - run: npm install
+
+      - name: Build installer
+        run: npm run tauri build -- --bundles nsis
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EmuCleaner-installer
+          path: src-tauri/target/release/bundle/nsis/*.exe
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EmuCleaner-portable-exe
+          path: src-tauri/target/release/emucleaner.exe

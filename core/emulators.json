@@ -1,0 +1,38 @@
+[
+  {
+    "id": "bluestacks",
+    "name": "BlueStacks",
+    "processes": ["HD-Player.exe", "HD-MultiInstanceManager.exe", "BlueStacks.exe"],
+    "install_dirs": ["%ProgramFiles%\\BlueStacks_nxt", "%ProgramFiles%\\BlueStacks"],
+    "data_dirs": ["%ProgramData%\\BlueStacks_nxt", "%ProgramData%\\BlueStacks"],
+    "registry": [{ "key": "SOFTWARE\\BlueStacks_nxt", "values": ["InstallDir", "DataDir", "UserDefinedDir"] }],
+    "candidates": [
+      { "label": "Logs", "kind": "logs", "path": "%ProgramData%\\BlueStacks_nxt\\Logs" },
+      { "label": "Installer leftovers", "kind": "temp", "path": "%ProgramData%\\BlueStacksSetup" }
+    ],
+    "protected": ["Engine"]
+  },
+  {
+    "id": "ldplayer",
+    "name": "LDPlayer",
+    "processes": ["dnplayer.exe", "Ld9BoxHeadless.exe", "Ld9BoxSVC.exe", "LdVBoxHeadless.exe"],
+    "install_dirs": ["C:\\LDPlayer\\LDPlayer9", "C:\\LDPlayer\\LDPlayer4.0", "%ProgramFiles%\\LDPlayer\\LDPlayer9"],
+    "data_dirs": ["%USERPROFILE%\\Documents\\XuanZhi9", "%USERPROFILE%\\Documents\\XuanZhi"],
+    "registry": [],
+    "candidates": [],
+    "protected": ["vms"]
+  },
+  {
+    "id": "gameloop",
+    "name": "Gameloop",
+    "processes": ["aow_exe.exe", "AndroidEmulatorEn.exe", "AndroidEmulator.exe", "AppMarket.exe", "QMEmulatorService.exe", "TBSWebRenderer.exe"],
+    "install_dirs": ["%ProgramFiles%\\TxGameAssistant", "%ProgramFiles(x86)%\\TxGameAssistant", "C:\\TxGameAssistant"],
+    "data_dirs": ["%APPDATA%\\Tencent\\TxGameAssistant"],
+    "registry": [
+      { "key": "SOFTWARE\\Tencent\\MobileGamePC\\AppMarket", "values": ["InstallPath"], "parent": true },
+      { "key": "SOFTWARE\\Tencent\\MobileGamePC\\AOW_Rootfs_0", "values": ["InstallPath"], "parent": true }
+    ],
+    "candidates": [],
+    "protected": ["AOW_Rootfs"]
+  }
+]

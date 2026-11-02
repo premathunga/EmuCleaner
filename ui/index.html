@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EmuCleaner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sb">
+<div class="logo"><div class="lg" id="lg"></div><b>EmuCleaner</b><span class="bt">BETA</span></div>
+<nav id="nav"></nav>
+<div class="sp"></div>
+<div class="st"><div><span class="dot"></span><b>Scan only</b></div><div>Nothing is deleted yet</div><div>v0.1 stage 1</div></div>
+<div class="ib"><button id="set" aria-label="Settings"></button><button id="fb" aria-label="Send feedback"></button></div>
+</aside>
+<main>
+<section class="card hero">
+<div class="ring"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" stroke="var(--bd)"/><circle id="rp" cx="42" cy="42" r="36"/></svg><div class="n" id="rn">--</div></div>
+<div class="ht"><h1 id="h1">Checking your PC…</h1><p id="sub">Based on free RAM, disk space and CPU load.</p></div>
+<div class="ha">
+<button class="btn pri" id="bt" disabled title="Coming in a later update">Boost &amp; Play</button>
+<button class="btn sec" id="qc" disabled title="Coming in a later update">Quick Clean</button>
+</div>
+</section>
+<div class="sh"><h2>Detected emulators</h2><p>Stage 1 only measures sizes. Your game data is never touched.</p><button class="lk" id="rep">Copy scan report</button><button class="lk" id="scan">Scan again</button></div>
+<section class="card" id="list"></section>
+<section class="tiles" id="tiles"></section>
+<p class="note" id="note"></p>
+</main>
+</div>
+<div class="ov" id="ov"></div>
+<div class="ts" id="ts" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
